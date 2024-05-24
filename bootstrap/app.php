@@ -60,6 +60,10 @@ $app->singleton(
 */
 
 $app->configure('app');
+// Tambahkan di bagian paling bawah file bootstrap/app.php
+$app->configure('auth');
+$app->configure('jwt');
+
 
 /*
 |--------------------------------------------------------------------------

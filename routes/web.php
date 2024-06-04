@@ -22,3 +22,13 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('/register', 'AuthController@register');
     $router->post('/login', 'AuthController@login');
 });
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->post('login', 'AuthController@login');
+
+    $router->get('barangs', 'BarangController@index');
+    $router->get('barangs/{id}', 'BarangController@show');
+    $router->post('barangs', 'BarangController@store');
+    $router->put('barangs/{id}', 'BarangController@update');
+    $router->delete('barangs/{id}', 'BarangController@destroy');
+});

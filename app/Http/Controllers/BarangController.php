@@ -21,8 +21,10 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required|string|max:255',
-            'jumlah' => 'required|integer',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|integer',
+            'quantity' => 'required|integer',
         ]);
 
         $barang = Barang::create($request->all());
@@ -38,8 +40,10 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama' => 'sometimes|string|max:255',
-            'jumlah' => 'sometimes|integer',
+            'name' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
+            'price' => 'sometimes|integer',
+            'quantity' => 'sometimes|integer',
         ]);
 
         $barang = Barang::findOrFail($id);

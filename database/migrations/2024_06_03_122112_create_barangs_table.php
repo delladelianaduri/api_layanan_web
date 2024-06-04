@@ -6,18 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateBarangsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('price', 8, 2);
-            $table->integer('quantity');
+            $table->string('description');
+            $table->integer('price');
+            $table->integer('quantity')->default(0);  // Tambahkan nilai default
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('barangs');
